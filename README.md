@@ -58,7 +58,9 @@ source venv/bin/activate   # Mac/Linux
 
 ## 3. Install dependencies:
 
-`pip install -r requirements.txt`
+`pip install -r requirements.txt` OR
+
+`pip install pytest-playwright`
 
 
 ## 4. Install Playwright browsers:
@@ -76,6 +78,7 @@ Outlook Example
 `python agent.py "send email to bob@example.com subject 'Report' body 'Please see attached'" outlook`
 
 ## Sample Execution (Gmail)
+```
 [Agent] Launching Gmail automation
 [Agent] Login manually if required...
 [Agent] Clicked Compose
@@ -83,6 +86,7 @@ Outlook Example
 [Agent] Filled subject: Meeting
 [Agent] Filled body
 [Agent] Clicked Send
+```
 
 
 ## Author
