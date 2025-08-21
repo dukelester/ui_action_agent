@@ -4,6 +4,7 @@ from utils.logger import log_step
 
 
 def send_gmail_email(to, subject, body):
+    ''' Send Gmail email'''
     log_step("Launching the Gmail Automation")
 
     with sync_playwright() as p:

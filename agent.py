@@ -6,7 +6,37 @@ from providers.outlook import send_outlook_email
 
 
 class EmailSendingAgent:
+    """
+    A utility agent for sending emails via different providers.
+
+    This class provides a simple interface for sending emails through
+    supported providers such as Gmail and Outlook. It abstracts away
+    provider-specific logic into helper functions.
+
+    Example:
+        agent = EmailSendingAgent()
+        agent.send_mail(
+            provider="gmail",
+            to="user@example.com",
+            subject="Hello!",
+            body="This is a test email."
+        )
+    """
     def send_mail(self, provider, to, subject, body):
+        """
+        Send an email using the specified provider.
+
+        Args:
+            provider (str): The email provider to use. 
+                            Supported: "gmail", "outlook".
+            to (str): The recipient email address.
+            subject (str): The subject line of the email.
+            body (str): The body content of the email.
+
+        Raises:
+            ValueError: If the given provider is not supported.
+        """
+
         if provider == 'gmail':
             send_gmail_email(to, subject, body)
         elif provider == 'outlook':
