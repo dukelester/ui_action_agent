@@ -12,6 +12,10 @@ def send_outlook_email(to, subject, body):
 
         log_step("Login manually if required...")
 
+        # Wait until we actually see Mail UI
+        page.wait_for_selector("button[aria-label='New mail']", timeout=120000)
+        log_step("Mailbox loaded")
+
         # Click on New mail
         page.click("button[aria-label='New mail']")
         log_step("Clicked on the New Mail button")

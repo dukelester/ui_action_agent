@@ -9,10 +9,14 @@ def send_gmail_email(to, subject, body):
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=False)
         page = browser.new_page()
-        page.go_to("https://mail.google.com/")
+        page.goto("https://mail.google.com/")
 
         # Log in manually if required
-        log_step("Log in o your email account ...")
+        log_step("Log into your email account ...")
+
+        # Wait until we actually see Mail UI
+        page.wait_for_selector("button[aria-label='New mail']", timeout=120000)
+        log_step("Mailbox loaded")
 
         # Click the Compose button
         page.click("div.T-I.T-I-KE.L3")
